@@ -1,4 +1,4 @@
-// We Love ABC
+// Multiple of 2 and N
 
 #include <iostream>
 #include <cmath>
@@ -12,11 +12,13 @@
 
 using namespace std;
 
-string s;
+int n;
 
 int main() {
-    cin >> s;
+    cin >> n;
+    int res = lcm(n, 2);
 
+    cout << res << endl;
 
     return 0;
 }

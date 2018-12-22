@@ -1,4 +1,4 @@
-// We Love ABC
+// Maximum Difference
 
 #include <iostream>
 #include <cmath>
@@ -12,11 +12,19 @@
 
 using namespace std;
 
-string s;
+int n;
 
 int main() {
-    cin >> s;
+    cin >> n;
 
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    sort(a.begin(), a.end());
+
+    cout << abs(*a.begin() - *(a.end() - 1)) << endl;
 
     return 0;
 }

@@ -1,4 +1,4 @@
-// We Love ABC
+// Task Scheduling Problem
 
 #include <iostream>
 #include <cmath>
@@ -12,11 +12,11 @@
 
 using namespace std;
 
-string s;
-
 int main() {
-    cin >> s;
-
+    vector<int> a(3);
+    cin >> a[0] >> a[1] >> a[2];
+    sort(a.begin(), a.end());
+    cout << abs(a[0] - a[1]) + abs(a[1] - a[2]) << endl;
 
     return 0;
 }
