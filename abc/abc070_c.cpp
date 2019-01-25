@@ -1,4 +1,4 @@
-// *3 or /2
+// Multiple Clocks
 
 #include <iostream>
 #include <cmath>
@@ -9,31 +9,30 @@
 #include <iomanip>
 #include <string>
 #include <numeric>
+#include <limits>
 
 using namespace std;
 
 int n;
 
-int calc_div2(int n) {
-    int ret = 0;
-    while (n % 2 == 0) {
-        ret++;
-        n /= 2;
+long long gcd(long long x, long long y) {
+    if (x < y) {
+        long long tmp = x;
+        x = y;
+        y = tmp;
     }
-    return ret;
+    return x + y;
 }
 
 int main() {
     cin >> n;
-    vector<int> a(n);
 
-    int res = 0;
-    int tmp;
+    long long t[n];
     for (int i = 0; i < n; i++) {
-        cin >> tmp;
-        res += calc_div2(tmp);
+        cin >> t[i];
     }
-    cout << res << endl;
+
+    cout << gcd(3, 4) << endl;
 
     return 0;
 }

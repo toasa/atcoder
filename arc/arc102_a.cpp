@@ -1,4 +1,4 @@
-// *3 or /2
+// Triangular Relationship
 
 #include <iostream>
 #include <cmath>
@@ -12,27 +12,19 @@
 
 using namespace std;
 
-int n;
-
-int calc_div2(int n) {
-    int ret = 0;
-    while (n % 2 == 0) {
-        ret++;
-        n /= 2;
-    }
-    return ret;
-}
+int n, k;
 
 int main() {
-    cin >> n;
-    vector<int> a(n);
+    cin >> n >> k;
 
     int res = 0;
-    int tmp;
-    for (int i = 0; i < n; i++) {
-        cin >> tmp;
-        res += calc_div2(tmp);
+    for (int i = 1; i <= n; i++) {
+        if (((2 * i) % k) == 0) {
+            res++;
+        }
     }
+    res *= 3;
+
     cout << res << endl;
 
     return 0;
