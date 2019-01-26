@@ -13,16 +13,18 @@
 
 using namespace std;
 
+
+
 int n;
 
-long long gcd(long long x, long long y) {
-    if (x < y) {
-        long long tmp = x;
-        x = y;
-        y = tmp;
-    }
-    return x + y;
-}
+// long long gcd(long long x, long long y) {
+//     if (x < y) {
+//         long long tmp = x;
+//         x = y;
+//         y = tmp;
+//     }
+//     return x + y;
+// }
 
 int main() {
     cin >> n;
@@ -32,7 +34,7 @@ int main() {
         cin >> t[i];
     }
 
-    cout << gcd(3, 4) << endl;
+
 
     return 0;
 }
