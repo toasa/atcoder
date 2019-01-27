@@ -33,7 +33,7 @@ int main() {
     int res = 0;
     for (int i = k + 1; i <= n - 1; i++) {
         int tmp = calc(i);
-        cout << "div: " << i << " num: " << tmp << endl;
+        //cout << "div: " << i << " num: " << tmp << endl;
         res += tmp;
     }
 
