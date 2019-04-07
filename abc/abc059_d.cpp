@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Alice&Brown
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,12 @@
 
 using namespace std;
 
-int n, k;
+int n;
+string s;
 
 int main() {
-
-    cin >> n >> k;
-
-
+    cin >> n;
+    cin >> s;
 
     return 0;
 }

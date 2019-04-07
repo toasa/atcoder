@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Grouping 2
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,10 @@
 
 using namespace std;
 
-int n, k;
+int n;
 
 int main() {
-
-    cin >> n >> k;
-
-
-
+    cin >> n;
+    cout << n / 3 << endl;
     return 0;
 }

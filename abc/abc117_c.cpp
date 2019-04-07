@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Streamline
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,14 @@
 
 using namespace std;
 
-int n, k;
+int n, m;
 
 int main() {
-
-    cin >> n >> k;
-
-
+    cin >> n >> m;
+    vector<int> x(m);
+    for (int i = 0; i < m; i++) {
+        cin >> x[i];
+    }
 
     return 0;
 }

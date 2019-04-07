@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Fennec VS. Snuke
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,12 @@
 
 using namespace std;
 
-int n, k;
+int n;
 
 int main() {
-
-    cin >> n >> k;
-
-
-
+    int a[n], b[n];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i] >> b[i];
+    }
     return 0;
 }

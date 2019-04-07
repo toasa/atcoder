@@ -11,42 +11,34 @@
 
 using namespace std;
 
-bool vector_finder(vector<string> words, string word) {
-    auto itr = find(words.begin(), words.end(), word);
-    if (itr != words.end()) { // 発見できたとき
-        return true;
-    } else {
-        return false;
-    }
-}
+int n;
+vector<string> words;
 
 int main() {
-    int n;
-    string word;
-    vector<string> words;
-
     cin >> n;
 
-    bool result = true;
+    bool res = true;
+    string w;
+    for (int i = 0; i < n; i++) {
+        cin >> w;
 
-    cin >> word;
-    char last_char = word[word.size() - 1];
+        if (find(words.begin(), words.end(), w) != words.end()) {
+            res = false;
+            //break;
+        };
 
-    for (int i = 1; i < n; i++) {
-        cin >> word;
-
-        if (vector_finder(words, word)) {
-            result = false;
+        if (i > 0) {
+            char c_tail = words[i-1][words[i-1].size() - 1];
+            char c_head = w[0];
+            if (c_tail != c_head) {
+                res = false;
+                //break;
+            }
         }
-        if (word[0] != last_char) {
-            result = false;
-        }
-
-        words.push_back(word);
-        last_char = word[word.size() - 1];
+        words.push_back(w);
     }
 
-    if (result) {
+    if (res) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;

@@ -1,4 +1,4 @@
-// Remainder Reminder
+//
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,15 @@
 
 using namespace std;
 
-int n, k;
+int a, b, c;
 
 int main() {
-
-    cin >> n >> k;
-
-
+    cin >> a >> b >> c;
+    if (a == b && b == c) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }

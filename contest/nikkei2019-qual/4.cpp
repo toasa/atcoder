@@ -19,6 +19,10 @@ int main() {
     int a[n+m];
     int b[n+m];
 
+    for (int i = 1; i < n+m; i++) {
+        cin >> a[i] >> b[i];
+    }
+
 
 
 

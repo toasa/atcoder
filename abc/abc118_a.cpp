@@ -1,4 +1,4 @@
-// Remainder Reminder
+// A - B +/- A
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,15 @@
 
 using namespace std;
 
-int n, k;
+int a, b;
 
 int main() {
+    cin >> a >> b;
 
-    cin >> n >> k;
-
-
-
+    if (b % a == 0) {
+        cout << a + b << endl;
+    } else {
+        cout << b - a << endl;
+    }
     return 0;
 }

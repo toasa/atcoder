@@ -4,30 +4,36 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
+#include <ios>
+#include <iomanip>
+#include <string>
+#include <numeric>
 
 using namespace std;
 
+int n;
+int t, a;
+
+float calc_temp(int h) {
+    return t - h * 0.006;
+}
 int main() {
-    int n;
-    int t, a;
     cin >> n;
     cin >> t >> a;
-    vector<int> h(n);
-    for (int i = 1; i <= n; i++) {
-        cin >> h[i];
-    }
 
-    int diff = 1000000000;
-    float tmp;
-    int res_index = -1;
-    for (int i = 1; i <= n; i++) {
-        tmp = (float)(t - (h[i] * 0.006));
-        if (abs(a - tmp) < diff) {
-            diff = abs(a-tmp);
-            res_index = i;
+    int h;
+    float diff = 10000000;
+
+    int res;
+    for (int i = 0; i < n; i++) {
+        cin >> h;
+        if (abs(calc_temp(h) - a) < diff) {
+            diff = abs(calc_temp(h) - a);
+            res = i + 1;
         }
     }
+    cout << res << endl;
 
-    cout << res_index << endl;
     return 0;
 }

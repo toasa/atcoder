@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Snuke the Wizard
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,19 @@
 
 using namespace std;
 
-int n, k;
-
 int main() {
+    int n, q;
+    string s;
 
-    cin >> n >> k;
+    cin >> n >> q;
+    cin >> s;
 
+    vector<char> t(q);
+    vector<char> d(q);
 
+    for (int i = 0; i < q; i++) {
+        cin >> t[i] >> d[i];;
+    }
 
     return 0;
 }

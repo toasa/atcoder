@@ -1,4 +1,4 @@
-// Remainder Reminder
+//
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,12 @@
 
 using namespace std;
 
-int n, k;
+int h, w, H, W;
 
 int main() {
-
-    cin >> n >> k;
-
-
+    cin >> H >> W;
+    cin >> h >> w;
+    cout << (H-h) * (W-w) << endl;
 
     return 0;
 }

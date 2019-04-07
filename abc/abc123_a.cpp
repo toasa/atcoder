@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Five Antennas
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,15 @@
 
 using namespace std;
 
-int n, k;
-
 int main() {
+    int a, b, c, d, e, k;
+    cin >> a >> b >> c >> d >> e >> k;
 
-    cin >> n >> k;
-
-
+    if (e - a <= k) {
+        cout << "Yay!" << endl;
+    } else {
+        cout << ":(" << endl;
+    }
 
     return 0;
 }

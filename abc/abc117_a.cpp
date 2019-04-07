@@ -1,4 +1,4 @@
-// Remainder Reminder
+// Entrance Examination
 
 #include <iostream>
 #include <cmath>
@@ -12,13 +12,11 @@
 
 using namespace std;
 
-int n, k;
+float t, x;
 
 int main() {
-
-    cin >> n >> k;
-
-
+    cin >> t >>x;
+    cout << t / x << endl;
 
     return 0;
 }
