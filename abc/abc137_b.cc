@@ -11,20 +11,18 @@
 #include <numeric>
 
 using namespace std;
-
-int N, M;
-int S, T;
-
+int K, X;
 int main() {
-    cin >> N >> M;
-    int u[M];
-    int v[M];
+    cin >> K >> X;
 
-    for (int i = 0; i < M; i++) {
-        cin >> u[i] >> v[i];
+    for (int i = X - K + 1; i < K + X; i++) {
+        if (i == K + X - 1) {
+            cout << i << endl;
+        } else {
+            cout << i << " ";
+        }
+        
     }
-
-    cin >> S >> T;
 
     return 0;
 }
