@@ -15,26 +15,32 @@ using namespace std;
 int N, M;
 
 int main() {
+    vector <int> available_works;
+
     cin >> N >> M;
-    vector < pair<int, int> > AB(N);
 
-    int used[N];
-    for (int i = 0; i < N; i++) {
-        used[i] = 0;
-    }
+    vector <int> works[M + 1];
 
+    vector <int> A(N);
+    vector <int> B(N);
+    
     int a, b;
     for (int i = 0; i < N; i++) {
         cin >> a >> b;
-        pair<int,int> p = make_pair(a, b);
-        AB[i] = p;
+        A[i] = a;
+        B[i] = b;
+        works[a].push_back(b);
     }
 
-    sort(AB.begin(), AB.end());
-    reverse(AB.begin(), AB.end());
+    for (int day = M - 1; 0 <= day; day--) {
+        vector <int> w = works[M - day];
+        for (int i = 0; i < w.size(); i++) {
+            available_works.push_back(w[i]);
+        }
 
-    for (int i = 0; i < N; i++) {
-        cout << AB[i].first << " " << AB[i].second << endl;
+        vector<int>::iterator iter = max_element(available_works.begin(), available_works.end());
+        size_t index = distance(available_works.begin(), iter);
+        cout << *iter << endl;
     }
 
     return 0;

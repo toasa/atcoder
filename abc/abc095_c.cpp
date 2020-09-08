@@ -1,44 +1,56 @@
 // Half and Half
 
-#include <iostream>
-#include <cmath>
-#include <vector>
 #include <algorithm>
-#include <unordered_map>
-#include <ios>
+#include <bitset>
+#include <cmath>
+#include <functional>
 #include <iomanip>
-#include <string>
+#include <ios>
+#include <iostream>
 #include <numeric>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <unordered_map>
+#include <vector>
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+using namespace std;
+using ll = long long;
+using P = pair<int,int>;
 
 using namespace std;
 
 int main() {
-    int a, b, c, x, y;
-    cin >> a >> b >> c >> x >> y;
-    // aピザ: a円、abピザ: c円
-    // aピザをx枚、bピザをy枚用意する必要がある
+    int A, B, C, X, Y, i, j;
+    cin >> A >> B >> C >> X >> Y;
 
-    // xとyの最小値 =: minまでは
-    // aピザとbピザをmin枚買う or abピザを2 * min枚買う　の最小値    ----(1)
-    // aピザが残りx - min枚( > 0)とすると、
-    // aピザをx - min枚買う or abピザを2 * (x - min)枚買う　の最小値 ----(2)
-    // (1) + (2) が求めるべき答え
+    // 買い方
+    // X > Y の場合
+    //     1. AピザをX枚、BピザをY枚買う
+    //     2. ABピザを 2 * X枚買う
+    //     3. ABピザを 2 * Y枚買い、Aピザを(X - Y)枚買う
 
-    int res = 0;
-    int min_mai = min(x, y);
-    x -= min_mai;
-    y -= min_mai;
-
-    res += min(a*min_mai + b*min_mai, c*2*min_mai);
-
-    if (x > 0) {
-        res += min(a*x, c*2*x);
-    }
-    if (y > 0) {
-        res += min(b*y, c*2*y);
+    int result1, result2, result3;
+    if (X > Y) {
+        result1 = A * X + B * Y;
+        result2 = C * 2 * X;
+        result3 = C * 2 * Y + A * (X - Y);
+    } else {
+        result1 = A * X + B * Y;
+        result2 = C * 2 * Y;
+        result3 = C * 2 * X + B * (Y - X);
     }
 
-    cout << res << endl;
+    vector <int> results = {result1, result2, result3};
+    int result = *min_element(results.begin(), results.end());
+
+    // for debug
+    // cout << "result1: " << result1 << endl;
+    // cout << "result2: " << result2 << endl;
+    // cout << "result3: " << result3 << endl;
+
+    cout << result << endl;
 
     return 0;
 }
