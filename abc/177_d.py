@@ -22,15 +22,13 @@ class Node:
         
         return self.parent.get_root()
 
-    def is_in_same_tree(self, another):
-        return self.get_root().ID == another.get_root().ID
-
     def concat(self, another):
-        if self.is_in_same_tree(another):
-            return
-
         sr = self.get_root()
         ar = another.get_root()
+
+        # is in a same tree.
+        if sr.ID == ar.ID:
+            return
 
         if sr.rank > ar.rank:
             parent, child = sr, ar
@@ -55,13 +53,5 @@ for i in range(M):
     b -= 1;
 
     tree.nodes[a].concat(tree.nodes[b])
-
-# # for debug
-# for i in range(N):
-#     n = tree.nodes[i]
-#     if n.parent is None:
-#         print(i + 1, "is root")
-#     else:
-#         print("parent of", i + 1, "is", n.parent.ID + 1)
 
 print(tree.find_max_child_num() + 1)
