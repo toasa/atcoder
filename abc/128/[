@@ -1,0 +1,25 @@
+from operator import attrgetter
+
+class Restaurant:
+    def __init__(self, ID, city, point):
+        self.ID = ID
+        self.city = city
+        self.point = point
+
+    def print(self):
+        print("ID:", self.ID)
+        print("city:", self.city)
+        print("point:", self.point)
+
+N = int(input())
+
+restaurants = []
+for i in range(N):
+    s, p = input().split()
+    restaurants.append(Restaurant(i, s, int(p)))
+
+restaurants = sorted(restaurants, key=attrgetter("city"))
+restaurants = sorted(restaurants, key=attrgetter("point"))
+
+for r in restaurants:
+    r.print()
