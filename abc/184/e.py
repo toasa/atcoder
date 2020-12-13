@@ -3,11 +3,9 @@ from collections import deque
 H, W = map(int, input().split())
 A = [""] * H
 visited = [ [False] * W for _ in range(H) ]
-cost = [ [10**7] * W for _ in range(H) ]
+cost = [ [-1] * W for _ in range(H) ]
 
-char_dic = {}
-for i in range(ord('a'), ord('z')+1):
-    char_dic[chr(i)] = []
+char_list = [ [] for _ in range(26) ]
 
 for i in range(H):
     A[i] = input()
@@ -19,7 +17,8 @@ for i in range(H):
         elif A[i][j] == 'G':
             goal = (i, j)
         elif ord('a') <= ord(A[i][j]) <= ord('z'):
-            char_dic[A[i][j]].append( (i,j) )
+            n = ord(A[i][j]) - ord('a')
+            char_list[n].append( (i,j) )
 
 cost[start[0]][start[1]] = 0
 visited[start[0]][start[1]] = True
@@ -28,17 +27,19 @@ q.append(start)
 
 while len(q) > 0:
     move = q.popleft()
+    if visited[move[0]][move[1]]:
+        continue
+
     cur_cost = cost[move[0]][move[1]]
 
     if ord('a') <= ord(A[move[0]][move[1]]) <= ord('z'):
-        c = A[move[0]][move[1]]
-        l = char_dic[c]
-        if len(l) > 0:
-            m = l.pop()
-            if cur_cost+1 <= cost[m[0]][m[1]]:
-                visited[m[0]][m[1]] = True
-                cost[m[0]][m[1]] = cur_cost+1
-                q.append(m)
+        if not visited[move[0]][move[1]]:
+            n = ord(A[move[0]][move[1]]) - ord('a')
+            for m in char_list[n]:
+                if not visited[m[0]][m[1]]:
+                    visited[m[0]][m[1]] = True
+                    cost[m[0]][m[1]] = cur_cost+1
+                    q.append(m)
 
     move_deltas = [(-1, 0), (0, -1), (0, 1), (1, 0)]
     for delta in move_deltas:
@@ -51,7 +52,7 @@ while len(q) > 0:
         if A[h][w] == '#':
             continue
 
-        if cur_cost+1 <= cost[h][w]:
+        if not visited[move[0]][move[1]]:
             q.append((h,w))
             visited[h][w] = True
             cost[h][w] = cur_cost+1
