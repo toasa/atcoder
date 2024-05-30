@@ -1,3 +1,4 @@
 .vscode
 abc/vscode
 .DS_Store
+*.out
